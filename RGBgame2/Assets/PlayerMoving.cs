@@ -18,4 +18,8 @@ public class PlayerMoving : MonoBehaviour {
             rb.MovePosition(rb.position + Vector2.right * x);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        Debug.Log("x");
+    }
 }

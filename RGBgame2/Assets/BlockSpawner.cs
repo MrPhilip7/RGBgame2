@@ -20,7 +20,7 @@ public class BlockSpawner : MonoBehaviour {
     }
 
     private void SpawnBlocks() {
-        int randomIndex = Random.Range(0, spawnPoints.Length);
+        int randomIndex = 3;
 
         for (int i = 0; i < spawnPoints.Length; i++) {
             if (randomIndex != i) {
