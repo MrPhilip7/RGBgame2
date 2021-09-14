@@ -335,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 0.3
   canControl: 1
+  canCollision: 1
 --- !u!1 &361103223
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debcaced221172842abca655089ce69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowness: 10
 --- !u!4 &361103225
 Transform:
   m_ObjectHideFlags: 0
