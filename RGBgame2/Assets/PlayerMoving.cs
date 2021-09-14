@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour {
-    private GameObject Character;
+    private Rigidbody2D rb;
     public float Speed = 5f;
     public bool canControl;
 
     public void Start() {
-        Character = transform.gameObject;
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         if (canControl == true) {
-            float a = Input.GetAxis("Horizontal") * Speed;
+            float x = Input.GetAxis("Horizontal") * Speed;
 
-            Character.transform.Translate(a * Time.deltaTime, 0, 0);
+            rb.MovePosition(rb.position + Vector2.right * x);
         }
     }
 }
