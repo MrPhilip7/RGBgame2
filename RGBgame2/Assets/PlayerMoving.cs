@@ -20,6 +20,6 @@ public class PlayerMoving : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        Debug.Log("x");
+        FindObjectOfType<GameManager>().EndGame();
     }
 }
