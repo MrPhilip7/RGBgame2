@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public void EndGame() {
+        StartCoroutine(RestartLevel());
+    }
+
+    private IEnumerator RestartLevel() {
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
