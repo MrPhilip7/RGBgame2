@@ -19,7 +19,7 @@ public class PlayerMoving : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    /*private void OnCollisionEnter2D(Collision2D collision) {
         FindObjectOfType<GameManager>().EndGame();
-    }
+    }*/
 }
