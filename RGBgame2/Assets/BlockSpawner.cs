@@ -7,15 +7,26 @@ public class BlockSpawner : MonoBehaviour {
 
     public GameObject blockPrefab;
 
+    public SpriteRenderer xrenderer;
+
+    private Color[] colors = new Color[6];
+
     public float wavesTime = 1f;
 
     private float spawnTime = 2f;
 
     // Start is called before the first frame update
+    private void Start() {
+        colors[0] = Color.red;
+        colors[1] = Color.green;
+        colors[2] = Color.blue;
+    }
+
     private void Update() {
         if (Time.time >= spawnTime) {
             SpawnBlocks();
             spawnTime = Time.time + wavesTime;
+            ColorSwitcher();
         }
     }
 
@@ -28,4 +39,11 @@ public class BlockSpawner : MonoBehaviour {
             }
         }
     }
+
+    private void ColorSwitcher() {
+        xrenderer.color = colors[Random.Range(0, 3)];
+    }
+
+    // private void ColorChecker() {
+    //  }
 }
