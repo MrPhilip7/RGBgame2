@@ -56,7 +56,7 @@ public class BlockSpawner : MonoBehaviour {
     }
 
     private void ColorSwitcher() {
-        switch (Random.Range(0, 5)) {
+        switch (Random.Range(0, 6)) {
             case 0:
                 xrenderer.color = Color.red;
                 xrenderer2.color = Color.green;
