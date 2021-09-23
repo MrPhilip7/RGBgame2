@@ -191,9 +191,10 @@ GameObject:
   - component: {fileID: 143527876}
   - component: {fileID: 143527875}
   - component: {fileID: 143527873}
+  - component: {fileID: 143527874}
   - component: {fileID: 143527872}
   - component: {fileID: 143527877}
-  - component: {fileID: 143527874}
+  - component: {fileID: 143527878}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -341,6 +342,19 @@ MonoBehaviour:
   Speed: 0.3
   canControl: 1
   canCollision: 0
+--- !u!114 &143527878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143527871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe6a531e25f6ac458fffe2ec3fb8196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRend: {fileID: 143527875}
 --- !u!1 &361103223
 GameObject:
   m_ObjectHideFlags: 0
