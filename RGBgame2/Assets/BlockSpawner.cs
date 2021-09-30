@@ -27,7 +27,6 @@ public class BlockSpawner : MonoBehaviour {
             SpawnBlocks2();
             SpawnBlocks3();
             spawnTime = Time.time + wavesTime;
-            ColorSwitcher();
         }
     }
 
@@ -55,7 +54,7 @@ public class BlockSpawner : MonoBehaviour {
         }
     }
 
-    private void ColorSwitcher() {
+    public void ColorSwitcher() {
         switch (Random.Range(0, 6)) {
             case 0:
                 xrenderer.color = Color.red;
