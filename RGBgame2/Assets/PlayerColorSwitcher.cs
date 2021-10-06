@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerColorSwitcher : MonoBehaviour {
     public SpriteRenderer playerRend;
 
-    [SerializeField] GameObject blockPrefab, blockPrefab2, blockPrefab3;
-    [SerializeField] SpriteRenderer xrenderer, xrenderer2, xrenderer3;
+    [SerializeField] private GameObject blockPrefab, blockPrefab2, blockPrefab3;
+    [SerializeField] private SpriteRenderer xrenderer, xrenderer2, xrenderer3;
 
     private Color[] colors = new Color[3];
 
@@ -32,35 +32,32 @@ public class PlayerColorSwitcher : MonoBehaviour {
         Debug.Log(xrenderer.color);
         Debug.Log(xrenderer2.color);
         Debug.Log(xrenderer3.color);
-        if (collision.gameObject.name == "Square(Clone)")
-        {
-            if (playerRend.color == xrenderer.color)
-            {
+        if (collision.gameObject.name == "Square(Clone)") {
+            if (playerRend.color == xrenderer.color) {
                 Debug.Log("Ten sam kolor");
+                Destroy(collision.gameObject);
             }
             else
                 Debug.Log("Inny kolor");
-        } 
-        if(collision.gameObject.name == "Square 1(Clone)")
-        {
-            if (playerRend.color == xrenderer2.color)
-            {
+        }
+        if (collision.gameObject.name == "Square 1(Clone)") {
+            if (playerRend.color == xrenderer2.color) {
                 Debug.Log("Ten sam kolor");
+                Destroy(collision.gameObject);
             }
             else
                 Debug.Log("Inny kolor");
-        } 
-        if(collision.gameObject.name == "Square (2)(Clone)")
-        {
-            if (playerRend.color == xrenderer3.color)
-            {
+        }
+        if (collision.gameObject.name == "Square (2)(Clone)") {
+            if (playerRend.color == xrenderer3.color) {
                 Debug.Log("Ten sam kolor");
+                Destroy(collision.gameObject);
             }
             else
                 Debug.Log("Inny kolor");
         }
         FindObjectOfType<BlockSpawner>().ColorSwitcher();
 
-        // PlayerColor();
+        PlayerColor();
     }
 }
