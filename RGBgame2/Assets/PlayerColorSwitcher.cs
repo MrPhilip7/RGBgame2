@@ -24,6 +24,7 @@ public class PlayerColorSwitcher : MonoBehaviour {
 
     private void PlayerColor() {
         playerRend.color = colors[Random.Range(0, 3)];
+        FindObjectOfType<BlockSpawner>().ColorSwitcher();
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -37,26 +38,33 @@ public class PlayerColorSwitcher : MonoBehaviour {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
             }
-            else
+            else {
                 Debug.Log("Inny kolor");
+                FindObjectOfType<GameManager>().EndGame();
+            }
         }
         if (collision.gameObject.name == "Square 1(Clone)") {
             if (playerRend.color == xrenderer2.color) {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
             }
-            else
+            else {
                 Debug.Log("Inny kolor");
+                FindObjectOfType<GameManager>().EndGame();
+            }
         }
         if (collision.gameObject.name == "Square (2)(Clone)") {
             if (playerRend.color == xrenderer3.color) {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
             }
-            else
+            else {
                 Debug.Log("Inny kolor");
+                FindObjectOfType<GameManager>().EndGame();
+            }
         }
-        FindObjectOfType<BlockSpawner>().ColorSwitcher();
+
+        //FindObjectOfType<BlockSpawner>().ColorSwitcher();
 
         PlayerColor();
     }

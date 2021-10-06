@@ -18,7 +18,6 @@ public class BlockSpawner : MonoBehaviour {
     private float spawnTime = 2f;
 
     private void Start() {
-        ColorSwitcher();
     }
 
     private void FixedUpdate() {
