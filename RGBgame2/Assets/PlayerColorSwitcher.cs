@@ -37,6 +37,7 @@ public class PlayerColorSwitcher : MonoBehaviour {
             if (playerRend.color == xrenderer.color) {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
+                Score.scoreValue++;
             }
             else {
                 Debug.Log("Inny kolor");
@@ -47,6 +48,7 @@ public class PlayerColorSwitcher : MonoBehaviour {
             if (playerRend.color == xrenderer2.color) {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
+                Score.scoreValue++;
             }
             else {
                 Debug.Log("Inny kolor");
@@ -57,6 +59,7 @@ public class PlayerColorSwitcher : MonoBehaviour {
             if (playerRend.color == xrenderer3.color) {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
+                Score.scoreValue++;
             }
             else {
                 Debug.Log("Inny kolor");
