@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerColorSwitcher : MonoBehaviour {
     public SpriteRenderer playerRend;
 
-    [SerializeField] private GameObject blockPrefab, blockPrefab2, blockPrefab3;
+    //  [SerializeField] private GameObject blockPrefab, blockPrefab2, blockPrefab3;
     [SerializeField] private SpriteRenderer xrenderer, xrenderer2, xrenderer3;
+
+    public LevelManager levelManager;
 
     private Color[] colors = new Color[3];
 
     // Start is called before the first frame update
     private void Start() {
+        levelManager = FindObjectOfType<LevelManager>();
         colors[0] = Color.red;
         colors[1] = Color.green;
         colors[2] = Color.blue;

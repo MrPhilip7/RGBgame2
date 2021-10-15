@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
+    public LevelManager levelManager;
 
     public float slowness = 10f;
 
     public void EndGame() {
         StartCoroutine(RestartLevel());
+        levelManager.GameOver();
     }
 
     private IEnumerator RestartLevel() {
@@ -20,6 +22,6 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1f;
         Time.fixedDeltaTime = Time.fixedDeltaTime * slowness;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

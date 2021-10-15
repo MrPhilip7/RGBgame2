@@ -8,6 +8,8 @@ public class PlayerMoving : MonoBehaviour {
     public bool canControl;
     public bool canCollision;
 
+    public LevelManager levelManager;
+
     public void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -20,9 +22,10 @@ public class PlayerMoving : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (canCollision == true) {
-            FindObjectOfType<GameManager>().EndGame();
-        }
-    }
+    /*  private void OnCollisionEnter2D(Collision2D collision) {
+          if (canCollision == true) {
+              // FindObjectOfType<GameManager>().EndGame();
+              levelManager.GameOver();
+          }
+      } */
 }
