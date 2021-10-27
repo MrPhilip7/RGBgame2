@@ -15,7 +15,7 @@ public class BlockSpawner : MonoBehaviour {
 
     public float wavesTime = 1f;
 
-    private float spawnTime = 2f;
+    private float spawnTime = 3f;
 
     private void Start() {
     }

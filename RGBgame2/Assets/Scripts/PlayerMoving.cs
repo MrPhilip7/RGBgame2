@@ -4,28 +4,19 @@ using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour {
     private Rigidbody2D rb;
-    public float Speed = 5f;
+    public float speed = 0.3f;
     public bool canControl;
     public bool canCollision;
-
-    public LevelManager levelManager;
 
     public void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         if (canControl == true) {
-            float x = Input.GetAxis("Horizontal") * Speed;
+            float x = Input.GetAxis("Horizontal") * 0.3f;
 
             rb.MovePosition(rb.position + Vector2.right * x);
         }
     }
-
-    /*  private void OnCollisionEnter2D(Collision2D collision) {
-          if (canCollision == true) {
-              // FindObjectOfType<GameManager>().EndGame();
-              levelManager.GameOver();
-          }
-      } */
 }
