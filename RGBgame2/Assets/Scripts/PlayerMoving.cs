@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour {
     private Rigidbody2D rb;
-    public float speed = 0.3f;
+    public float speed;
     public bool canControl;
-    public bool canCollision;
 
     public void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update() {
-        if (canControl == true) {
-            float x = Input.GetAxis("Horizontal") * 0.3f;
+    private void FixedUpdate() {
+        var movement = Input.GetAxis("Horizontal");
 
-            rb.MovePosition(rb.position + Vector2.right * x);
+        //Usuniecie 'slizgania'
+        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * speed;
+
+        if (Input.GetKey(KeyCode.A)) {
+            rb.AddForce(Vector3.left);
+        }
+        if (Input.GetKey(KeyCode.D)) {
+            rb.AddForce(Vector3.right);
         }
     }
 }

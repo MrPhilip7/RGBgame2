@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 143527877}
   - component: {fileID: 143527878}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -422,9 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31359bd69e32d004787a4bf67a50d30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 12
   canControl: 1
-  canCollision: 0
 --- !u!114 &143527878
 MonoBehaviour:
   m_ObjectHideFlags: 0

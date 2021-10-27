@@ -70,8 +70,6 @@ public class PlayerColorSwitcher : MonoBehaviour {
             }
         }
 
-        //FindObjectOfType<BlockSpawner>().ColorSwitcher();
-
         PlayerColor();
     }
 }
