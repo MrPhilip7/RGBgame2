@@ -1516,12 +1516,12 @@ GameObject:
   - component: {fileID: 1188903394}
   - component: {fileID: 1188903393}
   m_Layer: 5
-  m_Name: NOT_USED_PlayButtonCanvas
+  m_Name: PlayButtonCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1188903393
 MonoBehaviour:
   m_ObjectHideFlags: 0

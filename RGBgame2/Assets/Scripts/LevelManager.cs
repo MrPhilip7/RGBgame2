@@ -8,14 +8,32 @@ public class LevelManager : MonoBehaviour {
     public GameObject menuButtonCanvas;
     public TextMeshProUGUI countdownDisplay;
 
+    private static int counter;
+
     private void Start() {
+        if (counter == 0) {
+            Time.timeScale = 0;
+            countdownDisplay.gameObject.SetActive(false);
+        }
+        else {
+            Time.timeScale = 1;
+        }
     }
 
     public void Update() {
     }
 
+    public void PlayGame() {
+        countdownDisplay.gameObject.SetActive(true);
+        playButtonCanvas.SetActive(false);
+        menuButtonCanvas.SetActive(false);
+        Time.timeScale = 1;
+        counter++;
+    }
+
     public void GameOver() {
         menuButtonCanvas.SetActive(true);
+        playButtonCanvas.SetActive(false);
         Time.timeScale = 0;
     }
 
