@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerColorSwitcher : MonoBehaviour {
     public SpriteRenderer playerRend;
-
-    //  [SerializeField] private GameObject blockPrefab, blockPrefab2, blockPrefab3;
+    public Time time;
     [SerializeField] private SpriteRenderer xrenderer, xrenderer2, xrenderer3;
 
     public LevelManager levelManager;
@@ -40,7 +39,13 @@ public class PlayerColorSwitcher : MonoBehaviour {
             if (playerRend.color == xrenderer.color) {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
-                Score.scoreValue++;
+                IEnumerator myWaitCoroutine1() {
+                    yield return new WaitForSeconds(0.1f);
+
+                    Score.scoreValue++;
+                }
+                StartCoroutine(myWaitCoroutine1());
+                          
             }
             else {
                 Debug.Log("Inny kolor");
@@ -51,7 +56,12 @@ public class PlayerColorSwitcher : MonoBehaviour {
             if (playerRend.color == xrenderer2.color) {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
-                Score.scoreValue++;
+                IEnumerator myWaitCoroutine1() {
+                    yield return new WaitForSeconds(0.1f);
+
+                    Score.scoreValue++;
+                }
+                StartCoroutine(myWaitCoroutine1());
             }
             else {
                 Debug.Log("Inny kolor");
@@ -62,14 +72,24 @@ public class PlayerColorSwitcher : MonoBehaviour {
             if (playerRend.color == xrenderer3.color) {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
-                Score.scoreValue++;
+                IEnumerator myWaitCoroutine1() {
+                    yield return new WaitForSeconds(0.1f);
+
+                    Score.scoreValue++;
+                }
+                StartCoroutine(myWaitCoroutine1());
             }
             else {
                 Debug.Log("Inny kolor");
                 FindObjectOfType<GameManager>().EndGame();
             }
         }
+        IEnumerator myWaitCoroutine() {
+            yield return new WaitForSeconds(0.1f);
 
-        PlayerColor();
+            PlayerColor();
+        }
+        StartCoroutine(myWaitCoroutine());
+         
     }
 }
