@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void PlayGame() {
-        countdownDisplay.gameObject.SetActive(true);
+        //countdownDisplay.gameObject.SetActive(true);              resolution problem
         playButtonCanvas.SetActive(false);
         menuButtonCanvas.SetActive(false);
         Time.timeScale = 1;
