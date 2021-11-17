@@ -10,18 +10,24 @@ public class GameManager : MonoBehaviour {
 
     public void EndGame() {
         StartCoroutine(RestartLevel());
-        levelManager.GameOver();
+        IEnumerator myWaitCoroutineGameOver() {
+            yield return new WaitForSeconds(0.2f);
+
+            levelManager.GameOver();
+        }
+        StartCoroutine(myWaitCoroutineGameOver());
+        
     }
 
     private IEnumerator RestartLevel() {
         Time.timeScale = 1f / slowness;
         Time.fixedDeltaTime = Time.fixedDeltaTime / slowness;
 
-        yield return new WaitForSeconds(1f / slowness);
+        yield return new WaitForSeconds(0.8f / slowness);
 
         Time.timeScale = 1f;
         Time.fixedDeltaTime = Time.fixedDeltaTime * slowness;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

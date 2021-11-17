@@ -49,7 +49,8 @@ public class PlayerColorSwitcher : MonoBehaviour {
             }
             else {
                 Debug.Log("Inny kolor");
-                FindObjectOfType<GameManager>().EndGame();
+                    FindObjectOfType<GameManager>().EndGame();
+            
             }
         }
         if (collision.gameObject.name == "Square 1(Clone)") {
@@ -65,7 +66,12 @@ public class PlayerColorSwitcher : MonoBehaviour {
             }
             else {
                 Debug.Log("Inny kolor");
-                FindObjectOfType<GameManager>().EndGame();
+               // IEnumerator myWaitCoroutineGameOver() {
+                  //  yield return new WaitForSeconds(0.05f);
+
+                    FindObjectOfType<GameManager>().EndGame();
+               // }
+               // StartCoroutine(myWaitCoroutineGameOver());
             }
         }
         if (collision.gameObject.name == "Square (2)(Clone)") {
@@ -81,7 +87,8 @@ public class PlayerColorSwitcher : MonoBehaviour {
             }
             else {
                 Debug.Log("Inny kolor");
-                FindObjectOfType<GameManager>().EndGame();
+                    FindObjectOfType<GameManager>().EndGame();
+
             }
         }
         IEnumerator myWaitCoroutine() {
