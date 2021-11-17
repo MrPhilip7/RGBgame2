@@ -6,6 +6,7 @@ using TMPro;
 public class LevelManager : MonoBehaviour {
     public GameObject playButtonCanvas;
     public GameObject menuButtonCanvas;
+    public GameObject exitGameButton;
     public TextMeshProUGUI countdownDisplay;
 
     private static int counter;
@@ -46,4 +47,9 @@ public class LevelManager : MonoBehaviour {
         playButtonCanvas.SetActive(false);
         Time.timeScale = 1;
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
