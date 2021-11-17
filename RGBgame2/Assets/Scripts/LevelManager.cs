@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour {
         }
         else {
             Time.timeScale = 1;
+            playButtonCanvas.SetActive(false);
         }
     }
 
