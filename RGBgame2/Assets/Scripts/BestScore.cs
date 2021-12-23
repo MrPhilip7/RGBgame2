@@ -25,6 +25,6 @@ public class BestScore : MonoBehaviour {
     }
 
     private void PrintHighScore() {
-        textMesh.text = "Best score: " + PlayerPrefs.GetInt("highscore").ToString();
+        textMesh.text = PlayerPrefs.GetInt("highscore").ToString();
     }
 }
