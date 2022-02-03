@@ -13,9 +13,9 @@ public class BlockSpawner : MonoBehaviour {
     public SpriteRenderer xrenderer2;
     public SpriteRenderer xrenderer3;
 
-    public float wavesTime = 1f;
+    public static float wavesTime = 2.5f;
 
-    private float spawnTime = 3f;
+    public static float spawnTime = 3f;
 
     private void Start() {
     }

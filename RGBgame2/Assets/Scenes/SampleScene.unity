@@ -261,7 +261,6 @@ MonoBehaviour:
   xrenderer: {fileID: 6005030247793895983, guid: 09ed27781c613384f95b8ff87d17e0d8, type: 3}
   xrenderer2: {fileID: 1797761456361842891, guid: b8dc7bcac5e7a2a468780315ebc77a18, type: 3}
   xrenderer3: {fileID: 7462495649888645828, guid: a3f437fd1f48fa84cbfe2bfa19afbea5, type: 3}
-  wavesTime: 2
 --- !u!1 &34944269
 GameObject:
   m_ObjectHideFlags: 0
