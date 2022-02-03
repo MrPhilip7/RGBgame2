@@ -9,6 +9,8 @@ public class PlayerColorSwitcher : MonoBehaviour {
 
     public LevelManager levelManager;
 
+    public AudioSource colAudioSource;
+
     private Color[] colors = new Color[3];
 
     // Start is called before the first frame update
@@ -36,6 +38,7 @@ public class PlayerColorSwitcher : MonoBehaviour {
         Debug.Log(xrenderer2.color);
         Debug.Log(xrenderer3.color);
         if (collision.gameObject.name == "Square(Clone)") {
+            colAudioSource.Play();
             if (playerRend.color == xrenderer.color) {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
@@ -45,15 +48,14 @@ public class PlayerColorSwitcher : MonoBehaviour {
                     Score.scoreValue++;
                 }
                 StartCoroutine(myWaitCoroutine1());
-                          
             }
             else {
                 Debug.Log("Inny kolor");
-                    FindObjectOfType<GameManager>().EndGame();
-            
+                FindObjectOfType<GameManager>().EndGame();
             }
         }
         if (collision.gameObject.name == "Square 1(Clone)") {
+            colAudioSource.Play();
             if (playerRend.color == xrenderer2.color) {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
@@ -66,15 +68,16 @@ public class PlayerColorSwitcher : MonoBehaviour {
             }
             else {
                 Debug.Log("Inny kolor");
-               // IEnumerator myWaitCoroutineGameOver() {
-                  //  yield return new WaitForSeconds(0.05f);
+                // IEnumerator myWaitCoroutineGameOver() {
+                //  yield return new WaitForSeconds(0.05f);
 
-                    FindObjectOfType<GameManager>().EndGame();
-               // }
-               // StartCoroutine(myWaitCoroutineGameOver());
+                FindObjectOfType<GameManager>().EndGame();
+                // }
+                // StartCoroutine(myWaitCoroutineGameOver());
             }
         }
         if (collision.gameObject.name == "Square (2)(Clone)") {
+            colAudioSource.Play();
             if (playerRend.color == xrenderer3.color) {
                 Debug.Log("Ten sam kolor");
                 Destroy(collision.gameObject);
@@ -87,8 +90,7 @@ public class PlayerColorSwitcher : MonoBehaviour {
             }
             else {
                 Debug.Log("Inny kolor");
-                    FindObjectOfType<GameManager>().EndGame();
-
+                FindObjectOfType<GameManager>().EndGame();
             }
         }
         IEnumerator myWaitCoroutine() {
@@ -97,6 +99,5 @@ public class PlayerColorSwitcher : MonoBehaviour {
             PlayerColor();
         }
         StartCoroutine(myWaitCoroutine());
-         
     }
 }
