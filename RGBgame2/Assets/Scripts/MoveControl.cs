@@ -8,7 +8,7 @@ public class MoveControl : MonoBehaviour {
     private bool moveLeft, moveRight;
 
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
         rb = GetComponent<Rigidbody2D>();
         //moveSpeed = 5f;
         moveLeft = false;
@@ -23,7 +23,6 @@ public class MoveControl : MonoBehaviour {
         moveRight = true;
     }
 
-
     public void StopMoving() {
         moveLeft = false;
         moveRight = false;
@@ -32,11 +31,14 @@ public class MoveControl : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
-        if (moveLeft) {
+        if (moveLeft || Input.GetKey(KeyCode.A)) {
             rb.velocity = new Vector2(-moveSpeed, 0f);
         }
+        else {
+            rb.velocity = Vector2.zero;
+        }
 
-        if (moveRight) {
+        if (moveRight || Input.GetKey(KeyCode.D)) {
             rb.velocity = new Vector2(moveSpeed, 0f);
         }
     }
