@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 using UnityEngine.UI;
 using TMPro;
 
@@ -13,8 +14,12 @@ public class LevelManager : MonoBehaviour {
     public GameObject aboutGameCanvas;
     public GameObject exitAboutGame;
     public GameObject gifAnimation;
+    public GameObject gifAnimation2;
+    public GameObject gifAnimation3;
+    public GameObject pointsAnimation;
 
     private static int counter;
+    public bool isShowed = false;
 
     private void Start() {
         if (counter == 0) {
@@ -29,11 +34,34 @@ public class LevelManager : MonoBehaviour {
 
     public void Update() {
         if (Score.scoreValue >= 1 && Score.scoreValue % 5 == 0) {
-            gifAnimation.SetActive(true);
+            if (!isShowed) {
+                AnimationPoints();
+                isShowed = true;
+            }
         }
         else {
             gifAnimation.SetActive(false);
+            gifAnimation2.SetActive(false);
+            gifAnimation3.SetActive(false);
+            pointsAnimation.SetActive(true);
+            isShowed = false;
         }
+    }
+
+    private void AnimationPoints() {
+        IEnumerator waitForAninmation() {
+            gifAnimation.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            gifAnimation.SetActive(false);
+            gifAnimation2.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            gifAnimation2.SetActive(false);
+            gifAnimation3.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            gifAnimation3.SetActive(false);
+            pointsAnimation.SetActive(false);
+        }
+        StartCoroutine(waitForAninmation());
     }
 
     public void PlayGame() {
