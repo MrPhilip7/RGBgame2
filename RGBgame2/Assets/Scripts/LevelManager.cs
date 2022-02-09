@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour {
         else {
             Time.timeScale = 1;
             playButtonCanvas.SetActive(false);
+            aboutGameButtonCanvas.SetActive(false);
         }
     }
 
@@ -93,6 +94,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void SettingsShow() {
+        menuButtonCanvas.SetActive(false);
         settingsCanvas.SetActive(true);
     }
 
@@ -105,6 +107,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void BackToGameOver() {
+        menuButtonCanvas.SetActive(true);
         settingsCanvas.SetActive(false);
     }
 
