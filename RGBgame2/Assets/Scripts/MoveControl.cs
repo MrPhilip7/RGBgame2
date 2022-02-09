@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class MoveControl : MonoBehaviour {
+public class MoveControl : MonoBehaviour
+{
     private Rigidbody2D rb;
 
     public float moveSpeed;
@@ -8,37 +9,45 @@ public class MoveControl : MonoBehaviour {
     private bool moveLeft, moveRight;
 
     // Start is called before the first frame update
-    private void Start() {
+    private void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
         //moveSpeed = 5f;
         moveLeft = false;
         moveRight = false;
     }
 
-    public void MoveLeft() {
+    public void MoveLeft()
+    {
         moveLeft = true;
     }
 
-    public void MoveRight() {
+    public void MoveRight()
+    {
         moveRight = true;
     }
 
-    public void StopMoving() {
+    public void StopMoving()
+    {
         moveLeft = false;
         moveRight = false;
         rb.velocity = Vector2.zero;
     }
 
     // Update is called once per frame
-    private void Update() {
-        if (moveLeft || Input.GetKey(KeyCode.A)) {
+    private void Update()
+    {
+        if ((moveLeft || Input.GetKey(KeyCode.A)) && rb.transform.position.x > -2f)
+        {
             rb.velocity = new Vector2(-moveSpeed, 0f);
         }
-        else {
+        else
+        {
             rb.velocity = Vector2.zero;
         }
 
-        if (moveRight || Input.GetKey(KeyCode.D)) {
+        if ((moveRight || Input.GetKey(KeyCode.D)) && rb.transform.position.x < 2f)
+        {
             rb.velocity = new Vector2(moveSpeed, 0f);
         }
     }
