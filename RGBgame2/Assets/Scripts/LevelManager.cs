@@ -10,9 +10,11 @@ public class LevelManager : MonoBehaviour {
     public GameObject settingsButtonCanvas;
     public GameObject exitGameButton;
     public GameObject settingsCanvas;
-    public GameObject aboutGameButtonCanvas;
+    public GameObject aboutGameButtonCanvasStart;
+    public GameObject aboutGameButtonCanvasRestart;
     public GameObject aboutGameCanvas;
-    public GameObject exitAboutGame;
+    public GameObject exitAboutGameStart;
+    public GameObject exitAboutGameRestart;
     public GameObject gifAnimation;
     public GameObject gifAnimation2;
     public GameObject gifAnimation3;
@@ -24,12 +26,13 @@ public class LevelManager : MonoBehaviour {
     private void Start() {
         if (counter == 0) {
             Time.timeScale = 0;
-            aboutGameButtonCanvas.SetActive(true);
+            aboutGameButtonCanvasStart.SetActive(true);
         }
         else {
             Time.timeScale = 1;
             playButtonCanvas.SetActive(false);
-            aboutGameButtonCanvas.SetActive(false);
+            aboutGameButtonCanvasStart.SetActive(false);
+            aboutGameButtonCanvasRestart.SetActive(false);
         }
     }
 
@@ -67,24 +70,25 @@ public class LevelManager : MonoBehaviour {
 
     public void PlayGame() {
         playButtonCanvas.SetActive(false);
-        aboutGameButtonCanvas.SetActive(false);
+        aboutGameButtonCanvasStart.SetActive(false);
         menuButtonCanvas.SetActive(false);
-        aboutGameButtonCanvas.SetActive(false);
+        aboutGameButtonCanvasRestart.SetActive(false);
         Time.timeScale = 1;
         counter++;
     }
 
     public void GameOver() {
         menuButtonCanvas.SetActive(true);
-        aboutGameButtonCanvas.SetActive(true);
+        aboutGameButtonCanvasStart.SetActive(true);
         playButtonCanvas.SetActive(false);
         settingsButtonCanvas.SetActive(true);
         gifAnimation.SetActive(false);
+        aboutGameButtonCanvasRestart.SetActive(true);
         Time.timeScale = 0;
     }
 
     public void RestartGame() {
-        aboutGameButtonCanvas.SetActive(false);
+        aboutGameButtonCanvasStart.SetActive(false);
         SceneManager.LoadScene(0);
         menuButtonCanvas.SetActive(false);
         Score.scoreValue = 0;
@@ -96,14 +100,38 @@ public class LevelManager : MonoBehaviour {
     public void SettingsShow() {
         menuButtonCanvas.SetActive(false);
         settingsCanvas.SetActive(true);
-    }
-
-    public void AboutGameShow() {
-        aboutGameCanvas.SetActive(true);
-    }
-
-    public void ExitAboutGame() {
         aboutGameCanvas.SetActive(false);
+        aboutGameButtonCanvasStart.SetActive(false);
+    }
+
+    public void AboutGameShowStart() {
+        menuButtonCanvas.SetActive(false);
+        settingsCanvas.SetActive(false);
+        settingsButtonCanvas.SetActive(false);
+        aboutGameCanvas.SetActive(true);
+        playButtonCanvas.SetActive(false);
+        exitAboutGameStart.SetActive(true);
+    }
+
+    public void AboutGameShowRestart() {
+        aboutGameCanvas.SetActive(true);
+        menuButtonCanvas.SetActive(false);
+        settingsCanvas.SetActive(false);
+        settingsButtonCanvas.SetActive(false);
+        aboutGameCanvas.SetActive(true);
+        playButtonCanvas.SetActive(false);
+        exitAboutGameRestart.SetActive(true);
+    }
+
+    public void ExitAboutGameStart() {
+        playButtonCanvas.SetActive(true);
+        aboutGameCanvas.SetActive(false);
+    }
+
+    public void ExitAboutGameRestart() {
+        menuButtonCanvas.SetActive(true);
+        aboutGameCanvas.SetActive(false);
+        settingsButtonCanvas.SetActive(true);
     }
 
     public void BackToGameOver() {
