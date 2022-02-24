@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerColorSwitcher : MoveControl {
+public class PlayerColorSwitcher : MonoBehaviour {
     public SpriteRenderer playerRend;
     public Time time;
     [SerializeField] private SpriteRenderer xrenderer, xrenderer2, xrenderer3;
-
-    public GameObject leftButton;
-    public GameObject rightButton;
 
     public LevelManager levelManager;
 
@@ -18,8 +15,6 @@ public class PlayerColorSwitcher : MoveControl {
 
     // Start is called before the first frame update
     private void Start() {
-        leftButton.SetActive(true);
-        rightButton.SetActive(true);
         levelManager = FindObjectOfType<LevelManager>();
         colors[0] = Color.red;
         colors[1] = Color.green;
@@ -56,8 +51,7 @@ public class PlayerColorSwitcher : MoveControl {
             }
             else {
                 Debug.Log("Inny kolor");
-                leftButton.SetActive(false);
-                rightButton.SetActive(false);
+                GetComponent<MoveControl>().enabled = false;
                 FindObjectOfType<GameManager>().EndGame();
             }
         }
@@ -75,8 +69,7 @@ public class PlayerColorSwitcher : MoveControl {
             }
             else {
                 Debug.Log("Inny kolor");
-                leftButton.SetActive(false);
-                rightButton.SetActive(false);
+                GetComponent<MoveControl>().enabled = false;
                 FindObjectOfType<GameManager>().EndGame();
             }
         }
@@ -94,8 +87,7 @@ public class PlayerColorSwitcher : MoveControl {
             }
             else {
                 Debug.Log("Inny kolor");
-                leftButton.SetActive(false);
-                rightButton.SetActive(false);
+                GetComponent<MoveControl>().enabled = false;
                 FindObjectOfType<GameManager>().EndGame();
             }
         }
