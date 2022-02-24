@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerColorSwitcher : MonoBehaviour {
+public class PlayerColorSwitcher : MoveControl {
     public SpriteRenderer playerRend;
     public Time time;
     [SerializeField] private SpriteRenderer xrenderer, xrenderer2, xrenderer3;
+
+    public GameObject leftButton;
+    public GameObject rightButton;
 
     public LevelManager levelManager;
 
@@ -15,6 +18,8 @@ public class PlayerColorSwitcher : MonoBehaviour {
 
     // Start is called before the first frame update
     private void Start() {
+        leftButton.SetActive(true);
+        rightButton.SetActive(true);
         levelManager = FindObjectOfType<LevelManager>();
         colors[0] = Color.red;
         colors[1] = Color.green;
@@ -51,6 +56,8 @@ public class PlayerColorSwitcher : MonoBehaviour {
             }
             else {
                 Debug.Log("Inny kolor");
+                leftButton.SetActive(false);
+                rightButton.SetActive(false);
                 FindObjectOfType<GameManager>().EndGame();
             }
         }
@@ -68,12 +75,9 @@ public class PlayerColorSwitcher : MonoBehaviour {
             }
             else {
                 Debug.Log("Inny kolor");
-                // IEnumerator myWaitCoroutineGameOver() {
-                //  yield return new WaitForSeconds(0.05f);
-
+                leftButton.SetActive(false);
+                rightButton.SetActive(false);
                 FindObjectOfType<GameManager>().EndGame();
-                // }
-                // StartCoroutine(myWaitCoroutineGameOver());
             }
         }
         if (collision.gameObject.name == "Square (2)(Clone)") {
@@ -90,6 +94,8 @@ public class PlayerColorSwitcher : MonoBehaviour {
             }
             else {
                 Debug.Log("Inny kolor");
+                leftButton.SetActive(false);
+                rightButton.SetActive(false);
                 FindObjectOfType<GameManager>().EndGame();
             }
         }
